@@ -25,11 +25,12 @@ describe('Create challenge submission use case', () =>{
             instructionUrl: 'http://example.com'
         })
 
-        studentsRepository.items.push(student)
+        studentsRepository.items.push(student);
+        challangesRepository.items.push(challenge);
 
         const responde = await sut.execute({
-            studentId: 'fake-student-id',
-            challengeId: 'fake-challenge-id'
+            studentId: student.id,
+            challengeId: challenge.id
         })
 
         expect(responde).toBeTruthy()
